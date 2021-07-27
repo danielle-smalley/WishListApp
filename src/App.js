@@ -28,7 +28,7 @@ export default class App extends Component {
       };
 
       //npm install axios
-      Axios.post("http://localhost:55264/api/wishlistitems", newItem).then(
+      Axios.post("http://wishlistapi.daniellethedev.com/api/wishlistitems", newItem).then(
         (response) => {
           //TODO - come back here and edit URL
           let updatedItems = this.state.wishlistItems;
@@ -52,7 +52,7 @@ export default class App extends Component {
 
   toggleWishList = (wishlist) => {
     wishlist.Purchased = !wishlist.Purchased;
-    Axios.put("http://localhost:55264/api/wishlistitems", wishlist).then(
+    Axios.put("http://wishlistapi.daniellethedev.com/api/wishlistitems", wishlist).then(
       (response) => {
         let updatedItems = this.state.wishlistItems;
         let index = updatedItems.findIndex(
@@ -67,7 +67,7 @@ export default class App extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get("http://localhost:55264/api/wishlistitems").then((response) => {
+    Axios.get("http://wishlistapi.daniellethedev.com/api/wishlistitems").then((response) => {
       console.log(response.data);
       this.setState({ wishlistItems: response.data });
     });
